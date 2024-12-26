@@ -5,6 +5,6 @@ A high-performance multi-object tracking system utilizing a quantized YOLOv11 mo
 
 <figure style="text-align: center;">
   <img src="assets/result.gif" width="800" height="400" alt="Tracking System Result" />
-  <figcaption>Edge-Optimized Tracking System for the SportsMOT Dataset as an example.</figcaption>
+  <figcaption style="text-align: center;">Edge-Optimized Tracking System for the SportsMOT Dataset as an example.</figcaption>
 </figure>
 
