@@ -1,0 +1,43 @@
+# Compiled object files
+*.o
+*.obj
+
+# Libraries
+*.lib
+*.dll
+*.so
+
+# Executables
+*.exe
+*.out
+
+# Build directories
+build/
+dist/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Generated files
+*.pyc
+*.sobj
+*.d
+*.a
+
+# Temporary files
+*~
+# vim swap files
+.swp
+
+# Neural network files
+*.plan
+*.onnx
+*.pt
+
+# Python bytecode files
+__pycache__/
+*.pyc
+
+# Video outputs
+*.avi

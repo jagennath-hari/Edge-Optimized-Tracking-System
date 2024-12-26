@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  triton_server:
+    image: cuda_tracker:triton_base
+    container_name: triton_server
+    runtime: nvidia
+    privileged: true
+    network_mode: "host"
+    ipc: "host"
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ./models:/models
+      - ./weights:/weights
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: ["/opt/tritonserver/bin/tritonserver", "--model-repository=/models"]
+    restart: "no"
+
+  cpp_tracker:
+    image: cuda_tracker:triton_base
+    container_name: cpp_tracker
+    runtime: nvidia
+    privileged: true
+    network_mode: "host"
+    ipc: "host"
+    environment:
+      - DISPLAY=${DISPLAY}
+    depends_on:
+      - triton_server
+    volumes:
+      - ./tracker_system:/tracker_system
+      - ./scripts:/scripts
+      - ./weights:/weights
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${DATASET_PATH}:/dataset
+    command: ["/bin/bash", "-c", "sleep 15 && /tracker_system/build/example_system /dataset/img1"]
+    restart: "no"
+

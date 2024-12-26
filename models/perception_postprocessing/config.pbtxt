@@ -1,0 +1,39 @@
+name: "perception_postprocessing"
+backend: "python"
+max_batch_size: 0
+
+input [
+  {
+    name: "output0"
+    data_type: TYPE_FP16
+    dims: [1, 6, 11109]
+  },
+  {
+    name: "original_width"
+    data_type: TYPE_INT32
+    dims: [1]
+  },
+  {
+    name: "original_height"
+    data_type: TYPE_INT32
+    dims: [1]
+  }
+]
+
+output [
+  {
+    name: "boxes"
+    data_type: TYPE_INT32
+    dims: [-1, 4]  # N detections, 4 coordinates (x1, y1, x2, y2)
+  },
+  {
+    name: "scores"
+    data_type: TYPE_FP16
+    dims: [-1]  # N detections, confidence scores
+  },
+  {
+    name: "class_ids"
+    data_type: TYPE_INT32
+    dims: [-1]  # N detections, class IDs
+  }
+]

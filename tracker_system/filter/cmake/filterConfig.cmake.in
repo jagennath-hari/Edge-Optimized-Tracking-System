@@ -1,0 +1,15 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# Include dependencies for the Filter library
+find_dependency(CUDA REQUIRED)
+
+# Add the include directories for the Filter library
+set_and_check(Filter_INCLUDE_DIR "@PACKAGE_INCLUDE_INSTALL_DIR@")
+
+# Define the Filter targets
+include("${CMAKE_CURRENT_LIST_DIR}/filterTargets.cmake")
+
+# Export the package
+set(PACKAGE_VERSION "@PROJECT_VERSION@")

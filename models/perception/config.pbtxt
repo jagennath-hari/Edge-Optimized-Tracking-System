@@ -1,0 +1,60 @@
+name: "perception"
+platform: "tensorrt_plan"
+max_batch_size: 0
+
+input [
+  {
+    name: "images"
+    data_type: TYPE_FP16
+    dims: [1, 3, 736, 736]
+  }
+]
+
+output [
+  {
+    name: "output0"
+    data_type: TYPE_FP16
+    dims: [1, 6, 11109]
+  }
+]
+
+instance_group [
+  {
+    kind: KIND_GPU  # Run the model on the GPU
+  }
+]
+
+optimization {
+  execution_accelerators {
+    gpu_execution_accelerator: [
+      {
+        name: "tensorrt"
+        parameters {
+          key: "precision_fp16"
+          value: "true"  # Ensure FP16 precision is used
+        }
+        parameters {
+          key: "precision_constraints"
+          value: "obey"  # Ensure precision constraints are respected
+        }
+        parameters {
+          key: "sparsity"
+          
+          value: "enable"  # Enable sparsity
+        }
+        parameters {
+          key: "tactic_sources"
+          value: "+CUBLAS,+CUDNN,+JIT_CONVOLUTIONS,+CUBLAS_LT,+EDGE_MASK_CONVOLUTIONS"
+        }
+        parameters {
+          key: "workspace_size"
+          value: "5120"  # Set workspace size
+        }
+        parameters {
+          key: "use_cuda_graphs"
+          value: "true"  # Enable CUDA Graphs
+        }
+      }
+    ]
+  }
+}
