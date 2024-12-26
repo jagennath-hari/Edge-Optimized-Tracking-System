@@ -18,6 +18,6 @@ A high-performance multi-object tracking system utilizing a quantized YOLOv11 mo
 
 ## System Design
 <div align="center">
-    <img src="assets/main_system_design.png" width="1500" height="400" alt="Main Sys Design" />
+    <img src="assets/main_system_design.png" width="1500" height="200" alt="Main Sys Design" />
     <p>Overall System Design.</p>
 </div>
