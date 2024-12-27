@@ -19,7 +19,9 @@ A high-performance multi-object tracking system utilizing a quantized YOLOv11 mo
 ## 🏋️ Pre trained weights for SportsMOT dataset
 This trained network has only been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the scoccer dataset specifically *v_gQNyhv8y0QY_c013*. [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
 
-[Pretrained Weights](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[Pretrained Weights](https://drive.google.com/uc?export=download&id=13M0WVGBIsjVfTDMfZRp0fw7apFz1Fgn1)
+
+Extract the file and place the ```best.pt``` and ```best.onnx``` in the ```weights``` folder.
 
 ### Training on custom dataset using YOLOv11
 Training script [here](scripts/train.py).
