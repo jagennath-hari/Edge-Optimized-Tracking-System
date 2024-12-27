@@ -9,10 +9,11 @@ A high-performance multi-object tracking system utilizing a quantized YOLOv11 mo
 </div>
 
 ## 🏁 Dependencies
-1) [NVIDIA Driver](https://www.nvidia.com/download/index.aspx)
-2) [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
-3) [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-4) [Docker Compose plugin](https://docs.docker.com/compose/install/linux/)
+1) [Docker](https://docs.docker.com/engine/install/ubuntu/)
+2) [NVIDIA Driver](https://www.nvidia.com/download/index.aspx)
+3) [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
+4) [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+5) [Docker Compose plugin](https://docs.docker.com/compose/install/linux/)
 
 *Tested on Ubuntu 22.04 and with CUDA 12.1 using RTX 4090 GPU.*
 
