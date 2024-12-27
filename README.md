@@ -29,7 +29,7 @@ This trained network has only been trained on a single example dataset from the 
 
 [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
 
-Extract the folder.
+A folder called ```SportsMOT_example``` gets created after extracting the ```.zip``` file.
 
 ## 🏗️ Building the 🐳 Docker file
 Start building the docker container.
