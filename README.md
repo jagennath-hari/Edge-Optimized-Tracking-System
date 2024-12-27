@@ -26,8 +26,10 @@ Extract the file and place the ```best.pt``` and ```best.onnx``` in the ```weigh
 ### Training on custom dataset using YOLOv11
 Training script [here](scripts/train.py).
 
+Follow the [Official Documentation](https://docs.ultralytics.com/modes/train/). There might be lack of accuracy sometimes, follow [Tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) or use advaced frameworks like [Ray Tune](https://docs.ray.io/en/latest/tune/index.html), [WandB](https://wandb.ai/), etc.
+
 ### ONNX Conversion for YOLOv11
-Conversion script [here](scripts/torch_to_onnx.py).
+Conversion script [here](scripts/torch_to_onnx.py). Follow the [Official Documentation](https://docs.ultralytics.com/modes/export/) for more configurations. Manual conversions are also possible follow [Official PyTorch Tutorial](https://pytorch.org/tutorials/beginner/onnx/export_simple_model_to_onnx_tutorial.html).
 
 ## 📐 System Design
 <details>
