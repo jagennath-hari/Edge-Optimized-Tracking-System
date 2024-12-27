@@ -57,17 +57,20 @@ The output video gets saved in the ```/tracker_system/result``` folder.
 ## 📐 System Design
 <details>
 <summary>End-to-end Pipeline</summary>
+
 <div align="center">
     <img src="assets/main_system_design.png" width="1500" height="200" alt="Main Sys Design" />
     <p>Overall System Design.</p>
 </div>
 
 The overall system is divided into individual sub-systems, Perception, ByteTracker, and Particle Filter. Each of the sub-systems are explained below.
+
 </details>
 
 
 <details>
 <summary>Perception Design</summary>
+
 This again is divided into two sub-components which is the one time quantization, then the setting up the ensembled network for Triton Inference Server.
 
 #### Quantization Framework
@@ -82,6 +85,7 @@ This again is divided into two sub-components which is the one time quantization
     <img src="assets/perception_inference_design.png" width="1500" height="1000" alt="Perception Inference Sys Design" />
     <p>Inference framework.</p>
 </div>
+
 </details>
 
 
@@ -98,6 +102,7 @@ The [orginal authors paper](https://arxiv.org/abs/2110.06864) was used, the [Off
 
 <details>
 <summary>CUDA Particle Filter Design</summary>
+
 This implementation uses a complete GPU accelerated Particle Filter with an additional Unscented Transform for the prediction step.
 
 #### Structre of Array (SoA) for the states
@@ -113,6 +118,7 @@ We use a total of 10 states.
     <img src="assets/desgin_particle_filter_process.png" width="1500" height="1000" alt="Particle States Design" />
     <p>Particle Filter Process on the Device(GPU) with the Unscented Transform by propogating Sigma Points.</p>
 </div>
+
 </details>
 
 ## Running on custom data
