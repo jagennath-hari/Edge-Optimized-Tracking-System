@@ -121,15 +121,5 @@ year = {2023}
 }
 ```
 
-
 ## 🪪 License
 This software is released under BSD-3-Clause license. You can view a license summary [here](LICENSE). [Ultralytics](https://github.com/ultralytics/ultralytics) and [ByteTrack](https://github.com/ifzhang/ByteTrack) have their own licenses respectively.
-
-## 🙏 Acknowledgement
-This work incorporates many open-source codes.
-- [Ultralytics](https://github.com/ultralytics/ultralytics)
-- [ByteTrack](https://github.com/ifzhang/ByteTrack)
-- [Docker](https://www.docker.com/)
-- [ONNX](https://onnx.ai/)
-- [TensorRT](https://developer.nvidia.com/tensorrt)
-- [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)
