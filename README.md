@@ -24,7 +24,7 @@ A YOLOv11s model was used, dowload the weights.
 
 Extract the file and place the ```best.pt``` and ```best.onnx``` in the ```weights``` folder.
 
-### Dataset Download
+### 📊 Dataset Download
 This trained network has only been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the scoccer dataset instance specifically **v_gQNyhv8y0QY_c013**. 
 
 [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
@@ -132,7 +132,7 @@ The [models](models) folder has all the entire pipeline based on the network arc
 You can check wether the Triton is able to register you ensembled model by running ```bash run_container.sh``` and then inside running ```/opt/tritonserver/bin/tritonserver --model-repository=/models```.
 
 ### Using API for any new Perception, Tracking and Filter.
-The entire [API][tracker_system/include] are defined in the files ```*_interface.hpp``` so by overriding the fucntions you can plug and play any custom solutions. 
+The entire [API](tracker_system/include) are defined in the files ```*_interface.hpp``` so by overriding the fucntions you can plug and play any custom solutions. 
 
 ## 📖 Citation
 If you found this code/work to be useful in your own research, please considering citing the following:
