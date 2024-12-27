@@ -16,7 +16,7 @@ A high-performance multi-object tracking system utilizing a quantized YOLOv11 mo
 
 *Tested on Ubuntu 22.04 and with CUDA 12.1 using RTX 4090 GPU.*
 
-## Pre trained weights for SportsMOT dataset
+## 🏋️ Pre trained weights for SportsMOT dataset
 This trained network has only been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the scoccer dataset specifically *v_gQNyhv8y0QY_c013*. [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
 
 [Pretrained Weights](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
@@ -73,5 +73,8 @@ We use a total of 10 states.
 </div>
 
 #### CUDA Particle Filter with Unscented Transform
-
+<div align="center">
+    <img src="assets/desgin_particle_filter_process.png" width="1500" height="1000" alt="Particle States Design" />
+    <p>Particle Filter Process on the Device(GPU) with the Unscented Transform by propogating Sigma Points.</p>
+</div>
 
