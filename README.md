@@ -105,7 +105,7 @@ The [orginal authors paper](https://arxiv.org/abs/2110.06864) was used, the [Off
 This implementation uses a complete GPU accelerated Particle Filter with an additional Unscented Transform for the prediction step.
 
 #### Structre of Array (SoA) for the states
-We use a total of 10 states.
+There are a total of 10 states.
 
 <div align="center">
     <img src="assets/particle_SoA.png" width="1500" height="1000" alt="Particle States Design" />
