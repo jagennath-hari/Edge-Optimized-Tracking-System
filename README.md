@@ -27,39 +27,9 @@ Training script [here](scripts/train.py).
 ### ONNX Conversion for YOLOv11
 Conversion script [here](scripts/torch_to_onnx.py).
 
+## 📐 System Design
 <details>
-<summary>📐 System Design</summary>
-
-<div align="center">
-    <img src="assets/main_system_design.png" width="1500" height="200" alt="Main Sys Design" />
-    <p>Overall System Design.</p>
-</div>
-The overall system is divided into individual sub-systems, Perception, ByteTracker, and Particle Filter. Each of the sub-systems are explained below.
-
-
-<details>
-<summary>Perception Design</summary>
-This again is divided into two components which is the one time quantization, then the setting up the ensembled network for Triton Inference Server.
-</details>
-
-
-<details>
-<summary>ByteTrack Design</summary>
-The [orginal authors paper](https://arxiv.org/abs/2110.06864) was used, the [Offical Reposiory](https://github.com/ifzhang/ByteTrack) gives a detailed explantion of the implementation.
-</details>
-
-
-<details>
-<summary>CUDA Particle Filter Design</summary>
-This implementation uses a complete GPU accelerated Particle Filter with an additional Unscented Transform for the prediction step.
-</details>
-
-</details>
-
-
-
-<details>
-<summary>📐 System Design</summary>
+<summary>Full pipeline</summary>
 
 <div align="center">
     <img src="assets/main_system_design.png" width="1500" height="200" alt="Main Sys Design" />
