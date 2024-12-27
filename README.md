@@ -167,6 +167,15 @@ The entire [API](tracker_system/include) are defined in the files ```*_interface
 
 </details>
 
+
+## ⚠️ Note
+1) The particle filter can be extended to other applications such as 3D tracking, but it requires changes to the state space model.
+2) If running on NVIDIA Jetson, CUDA Shared Memory is not supported for Triton, the ensembled model needs to be changed as ARM uses unified memory.
+3) ByteTrack may not be the best solution, more SOTA learning based trackers can perform at higher accuracy.
+4) The system dynamics for the particle filter use simple equations of motion, it is best to use more dynamics when object motions are highly non-linear.
+5) The noise values may need tuning in the particle filter.
+6) Quantizing to int8 or fp16 can yeild faster iferences but at the cost of accuracy, it is a good idea to balance both, or undeerstand the applications requirements more for the ideal selection.
+
 ## 📖 Citation
 If you found this code/work to be useful in your own research, please considering citing the following:
 ```bibtex
