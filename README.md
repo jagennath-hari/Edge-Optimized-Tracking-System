@@ -116,7 +116,7 @@ There are a total of 10 states.
 
 </details>
 
-## Running on custom data
+## 💾 Running on custom data
 
 <details>
 <summary>Training on custom dataset using YOLOv11</summary>
