@@ -78,7 +78,6 @@ This again is divided into two sub-components which is the one time quantization
     <img src="assets/perception_quantization_design.png" width="1500" height="400" alt="Quantization Sys Design" />
     <p>Quantization framework.</p>
 </div>
-```fp16``` was used as the precision constaint here.
 
 #### Inference for Triton Inference Server using ensembled model
 <div align="center">
