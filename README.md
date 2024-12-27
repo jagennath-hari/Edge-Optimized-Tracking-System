@@ -98,4 +98,4 @@ To run the composed container with Triton and the executable.
 DATASET_PATH=/path/to/your/dataset bash run_and_exit.sh
 ```
 
-The output video gets saved in the ```results``` folder.
+The output video gets saved in the ```/tracker_system/result``` folder.
