@@ -81,3 +81,21 @@ The SoA is defined [here](tracker_system/filter/include/filter/particle_states.c
 </div>
 
 The souce code for the kernels is located [here](tracker_system/filter/include/filter/kernels.cuh) and [here](tracker_system/filter/src/kernels.cu).
+
+## 🏗️ Building the 🐳 Docker file
+Start building the docker container.
+```
+bash build.sh
+```
+
+Compiling the code (One time process).
+```
+bash compile.sh
+```
+## ⌛️ Running on sample data
+To run the composed container with Triton and the executable.
+```
+DATASET_PATH=/path/to/your/dataset bash run_and_exit.sh
+```
+
+The output video gets saved in the ```results``` folder.
