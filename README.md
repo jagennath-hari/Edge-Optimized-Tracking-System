@@ -17,7 +17,7 @@ A high-performance multi-object tracking system utilizing a quantized YOLOv11 mo
 *Tested on Ubuntu 22.04 and with CUDA 12.1 using RTX 4090 GPU.*
 
 ## 🏋️ Pre trained weights for SportsMOT dataset
-This trained network has only been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the scoccer dataset specifically *v_gQNyhv8y0QY_c013*. [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
+This trained network has only been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the scoccer dataset specifically **v_gQNyhv8y0QY_c013**. [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
 
 [Pretrained Weights](https://drive.google.com/uc?export=download&id=13M0WVGBIsjVfTDMfZRp0fw7apFz1Fgn1)
 
