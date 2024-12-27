@@ -117,24 +117,55 @@ There are a total of 10 states.
 </details>
 
 ## Running on custom data
-### Training on custom dataset using YOLOv11
+
+<details>
+<summary>Training on custom dataset using YOLOv11</summary>
+
 Training script [here](scripts/train.py).
 
 Follow the [Official Documentation](https://docs.ultralytics.com/modes/train/). There might be lack of accuracy sometimes, follow [Tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) or use advaced frameworks like [Ray Tune](https://docs.ray.io/en/latest/tune/index.html), [WandB](https://wandb.ai/), etc.
 
-### ONNX Conversion for YOLOv11
+</details>
+
+<details>
+<summary>ONNX Conversion for YOLOv11</summary>
+
 Conversion script [here](scripts/torch_to_onnx.py). Follow the [Official Documentation](https://docs.ultralytics.com/modes/export/) for more configurations. Manual conversions are also possible follow [Official PyTorch Tutorial](https://pytorch.org/tutorials/beginner/onnx/export_simple_model_to_onnx_tutorial.html).
 
-### Quantize the network
+</details>
+
+<details>
+<summary>Quantize the network</summary>
+
 There is a bash file which runs TensorRT executor [here](weights/quantize_yolo.sh), this has to be changed based on the input and output of your network architecture, also make sure to set the right percesion values if ```fp16```, ```fp32```, ```int32```, etc.
 
-### Changing the Triton Ensemble Model
+</details>
+
+
+<details>
+<summary>Changing the Triton Ensemble Model</summary>
+
 The [models](models) folder has all the entire pipeline based on the network architecture the pre-processing and post-processing files need to be changed. Typically the ```config.pbtxt``` for all the steps might require changes based on the entire peception logic. 
 
 You can check wether the Triton is able to register you ensembled model by running ```bash run_container.sh``` and then inside running ```/opt/tritonserver/bin/tritonserver --model-repository=/models```.
 
-### Using API for any new Perception, Tracking and Filter.
+</details>
+
+
+<details>
+<summary>Running the Docker compose</summary>
+
+Follow the [file](docker-compose.yml) and modify the path correctly. This should keep the entire end-to-end pipeline the same.
+
+</details>
+
+
+<details>
+<summary>Using API for any new Perception, Tracking and Filter.</summary>
+
 The entire [API](tracker_system/include) are defined in the files ```*_interface.hpp``` so by overriding the fucntions you can plug and play any custom solutions. 
+
+</details>
 
 ## 📖 Citation
 If you found this code/work to be useful in your own research, please considering citing the following:
