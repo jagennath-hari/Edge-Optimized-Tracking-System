@@ -33,7 +33,7 @@ services:
       - ./scripts:/scripts
       - ./weights:/weights
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ${DATASET_PATH}:/dataset
+      - ${DATASET_PATH}/dataset/train/v_gQNyhv8y0QY_c013:/dataset
     command: ["/bin/bash", "-c", "sleep 15 && /tracker_system/build/example_system /dataset/img1"]
     restart: "no"
 
