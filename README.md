@@ -89,7 +89,9 @@ This again is divided into two sub-components which is the one time quantization
 
 <details>
 <summary>ByteTrack Design</summary>
+
 The [orginal authors paper](https://arxiv.org/abs/2110.06864) was used, the [Offical Reposiory](https://github.com/ifzhang/ByteTrack) gives a detailed explantion of the implementation.
+
 </details>
 
 
