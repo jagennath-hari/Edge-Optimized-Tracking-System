@@ -66,34 +66,6 @@ This implementation uses a complete GPU accelerated Particle Filter with an addi
 
 #### Structre of Array (SoA) for the states
 We use a total of 10 states.
-$$
-\mathbf{X} =
-\left[
-\begin{array}{c}
-x \\
-y \\
-v_x \\
-v_y \\
-w \\
-h \\
-q_w \\
-q_x \\
-q_y \\
-q_z
-\end{array}
-\right]
-$$
-Description of the States:
-1) x: Position along the X-axis.
-2) y: Position along the Y-axis.
-3) v<sub>x</sub>​: Velocity along the X-axis.
-4) v<sub>y</sub>​: Velocity along the Y-axis.
-5) w: Width of the object.
-6) h: Height of the object.
-7) q<sub>w</sub>​: Quaternion scalar component (used for rotation representation).
-8) q<sub>x</sub>​: Quaternion X-component.
-9) q<sub>y</sub>​: Quaternion Y-component.
-10) q<sub>z</sub>​: Quaternion Z-component.
 
 <div align="center">
     <img src="assets/particle_SoA.png" width="1500" height="1000" alt="Particle States Design" />
