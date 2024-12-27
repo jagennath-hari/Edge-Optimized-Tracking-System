@@ -33,48 +33,55 @@ Conversion script [here](scripts/torch_to_onnx.py).
     <p>Overall System Design.</p>
 </div>
 
-The overall system is divided into individual sub-systems, Perception, ByteTracker, and Particle Filter. Each of the sub-systems are explained below.
+<details>
+    <summary>Perception Design</summary>
+    This is divided into two components: one-time quantization and setting up the ensembled network for Triton Inference Server.
 
-### Perception Design
-This again is divided into two components which is the one time quantization, then the setting up the ensembled network for Triton Inference Server.
+    <details>
+        <summary>Quantization Framework</summary>
+        <div align="center">
+            <img src="assets/perception_quantization_design.png" width="1500" height="400" alt="Quantization Sys Design" />
+            <p>Quantization framework.</p>
+        </div>
+        The exact command used for quantization in TensorRT can be found [here](weights/quantize_yolo.sh). For this example, FP16 was used.
+    </details>
 
-#### Quantization Framework
-<div align="center">
-    <img src="assets/perception_quantization_design.png" width="1500" height="400" alt="Quantization Sys Design" />
-    <p>Quantization framework.</p>
-</div>
+    <details>
+        <summary>Inference for Triton Inference Server using ensembled model</summary>
+        <div align="center">
+            <img src="assets/perception_inference_design.png" width="1500" height="1000" alt="Perception Inference Sys Design" />
+            <p>Inference framework.</p>
+        </div>
+        The entire source code for Perception is located [here](tracker_system/perception), and the ensembled model is [here](models).
 
-The exact command used for quatization in TensoRT can be found [here](weights/quantize_yolo.sh), for this example FP16 was used.
+        An example can be found [here](tracker_system/perception/examples/perception_dataset.cpp), which is a good starting point for making changes.
+    </details>
+</details>
 
-#### Inference for Triton Inference Server using ensembled model
-<div align="center">
-    <img src="assets/perception_inference_design.png" width="1500" height="1000" alt="Perception Inference Sys Design" />
-    <p>Inference framework.</p>
-</div>
+<details>
+    <summary>ByteTrack Design</summary>
+    The [original authors' paper](https://arxiv.org/abs/2110.06864) was used. The [official repository](https://github.com/ifzhang/ByteTrack) gives a detailed explanation of the implementation.
+</details>
 
-#### Full Pipeine
-The entire source code for Perception is [here](tracker_system/perception) and the esembled model is located [here](models).
+<details>
+    <summary>CUDA Particle Filter Design</summary>
+    This implementation uses a complete GPU-accelerated Particle Filter with an additional Unscented Transform for the prediction step.
 
-An example [here](tracker_system/perception/examples/perception_dataset.cpp) is a good starting point while making changes.
+    <details>
+        <summary>Structure of Array (SoA) for the states</summary>
+        <div align="center">
+            <img src="assets/particle_SoA.png" width="1500" height="1000" alt="Particle States Design" />
+            <p>Particle States Structure of Array.</p>
+        </div>
+        The SoA is defined [here](tracker_system/filter/include/filter/particle_states.cuh) and [here](tracker_system/filter/src/particle_states.cu).
+    </details>
 
-
-### ByteTrack Design
-The [orginal authors paper](https://arxiv.org/abs/2110.06864) was used, the [Offical Reposiory](https://github.com/ifzhang/ByteTrack) gives a detailed explantion of the implementation.
-
-### CUDA Particle Filter Design
-This implementation uses a complete GPU accelerated Particle Filter with an additional Unscented Transform for the prediction step.
-
-#### Structre of Array (SoA) for the states
-We use a total of 10 states.
-
-<div align="center">
-    <img src="assets/particle_SoA.png" width="1500" height="1000" alt="Particle States Design" />
-    <p>Particle States Structre of Array.</p>
-</div>
-
-#### CUDA Particle Filter with Unscented Transform
-<div align="center">
-    <img src="assets/desgin_particle_filter_process.png" width="1500" height="1000" alt="Particle States Design" />
-    <p>Particle Filter Process on the Device(GPU) with the Unscented Transform by propogating Sigma Points.</p>
-</div>
-
+    <details>
+        <summary>CUDA Particle Filter with Unscented Transform</summary>
+        <div align="center">
+            <img src="assets/desgin_particle_filter_process.png" width="1500" height="1000" alt="Particle Filter Design" />
+            <p>Particle Filter Process on the Device (GPU) with the Unscented Transform by propagating Sigma Points.</p>
+        </div>
+        The source code for the kernels is located [here](tracker_system/filter/include/filter/kernels.cuh) and [here](tracker_system/filter/src/kernels.cu).
+    </details>
+</details>
