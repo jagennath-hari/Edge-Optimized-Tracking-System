@@ -97,5 +97,39 @@ To run the composed container with Triton and the executable.
 ```
 DATASET_PATH=/path/to/your/dataset bash run_and_exit.sh
 ```
-
 The output video gets saved in the ```/tracker_system/result``` folder.
+
+## 📖 Citation
+If you found this code/work to be useful in your own research, please considering citing the following:
+```bibtex
+@software{Jocher_Ultralytics_YOLO_2023,
+author = {Jocher, Glenn and Qiu, Jing and Chaurasia, Ayush},
+license = {AGPL-3.0},
+month = jan,
+title = {{Ultralytics YOLO}},
+url = {https://github.com/ultralytics/ultralytics},
+version = {8.0.0},
+year = {2023}
+}
+```
+```bibtex
+@article{zhang2022bytetrack,
+  title={ByteTrack: Multi-Object Tracking by Associating Every Detection Box},
+  author={Zhang, Yifu and Sun, Peize and Jiang, Yi and Yu, Dongdong and Weng, Fucheng and Yuan, Zehuan and Luo, Ping and Liu, Wenyu and Wang, Xinggang},
+  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
+  year={2022}
+}
+```
+
+
+## 🪪 License
+This software is released under BSD-3-Clause license. You can view a license summary [here](LICENSE). [Ultralytics](https://github.com/ultralytics/ultralytics) and [ByteTrack](https://github.com/ifzhang/ByteTrack) have their own licenses respectively.
+
+## 🙏 Acknowledgement
+This work incorporates many open-source codes.
+- [Ultralytics](https://github.com/ultralytics/ultralytics)
+- [ByteTrack](https://github.com/ifzhang/ByteTrack)
+- [Docker](https://www.docker.com/)
+- [ONNX](https://onnx.ai/)
+- [TensorRT](https://developer.nvidia.com/tensorrt)
+- [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)
