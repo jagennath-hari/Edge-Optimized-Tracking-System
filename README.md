@@ -44,13 +44,8 @@ bash compile.sh
 ## ⌛️ Running on sample data
 To run the composed container with Triton and the executable.
 ```
-DATASET_PATH=/path/to/your/dataset bash run_and_exit.sh
+DATASET_PATH=/path/to/your/SportsMOT_example bash run_and_exit.sh
 ```
-Ideally this would look like something this
-```
-DATASET_PATH=/home/hari/Downloads/SportsMOT_example/dataset/train/v_gQNyhv8y0QY_c013 bash run_and_exit.sh
-```
-*Make sure to only run on the v_gQNyhv8y0QY_c013* as it was only trained on that.
 
 The output video gets saved in the ```/tracker_system/result``` folder.
 
