@@ -16,20 +16,43 @@ A high-performance multi-object tracking system utilizing a quantized YOLOv11 mo
 
 *Tested on Ubuntu 22.04 and with CUDA 12.1 using RTX 4090 GPU.*
 
-## 🏋️ Pre trained weights for SportsMOT dataset
-This trained network has only been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the scoccer dataset specifically **v_gQNyhv8y0QY_c013**. [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
+## ⚙️ Setup
+### 🏋️ Pre trained weights for SportsMOT dataset
+A YOLOv11s model was used, dowload the weights.
 
 [Pretrained Weights](https://drive.google.com/uc?export=download&id=13M0WVGBIsjVfTDMfZRp0fw7apFz1Fgn1)
 
 Extract the file and place the ```best.pt``` and ```best.onnx``` in the ```weights``` folder.
 
-### Training on custom dataset using YOLOv11
-Training script [here](scripts/train.py).
+### Dataset Download
+This trained network has only been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the scoccer dataset instance specifically **v_gQNyhv8y0QY_c013**. 
 
-Follow the [Official Documentation](https://docs.ultralytics.com/modes/train/). There might be lack of accuracy sometimes, follow [Tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) or use advaced frameworks like [Ray Tune](https://docs.ray.io/en/latest/tune/index.html), [WandB](https://wandb.ai/), etc.
+[Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
 
-### ONNX Conversion for YOLOv11
-Conversion script [here](scripts/torch_to_onnx.py). Follow the [Official Documentation](https://docs.ultralytics.com/modes/export/) for more configurations. Manual conversions are also possible follow [Official PyTorch Tutorial](https://pytorch.org/tutorials/beginner/onnx/export_simple_model_to_onnx_tutorial.html).
+Extract the folder.
+
+## 🏗️ Building the 🐳 Docker file
+Start building the docker container.
+```
+bash build.sh
+```
+
+Compiling the code (One time process).
+```
+bash compile.sh
+```
+## ⌛️ Running on sample data
+To run the composed container with Triton and the executable.
+```
+DATASET_PATH=/path/to/your/dataset bash run_and_exit.sh
+```
+Ideally this would look like something this
+```
+DATASET_PATH=/home/hari/Downloads/SportsMOT_example/dataset/train/v_gQNyhv8y0QY_c013 bash run_and_exit.sh
+```
+*Make sure to only run on the v_gQNyhv8y0QY_c013* as it was only trained on that.
+
+The output video gets saved in the ```/tracker_system/result``` folder.
 
 ## 📐 System Design
 <details>
@@ -91,22 +114,25 @@ The souce code for the kernels is located [here](tracker_system/filter/include/f
   
 </details>
 
-## 🏗️ Building the 🐳 Docker file
-Start building the docker container.
-```
-bash build.sh
-```
+## Running on custom data
+### Training on custom dataset using YOLOv11
+Training script [here](scripts/train.py).
 
-Compiling the code (One time process).
-```
-bash compile.sh
-```
-## ⌛️ Running on sample data
-To run the composed container with Triton and the executable.
-```
-DATASET_PATH=/path/to/your/dataset bash run_and_exit.sh
-```
-The output video gets saved in the ```/tracker_system/result``` folder.
+Follow the [Official Documentation](https://docs.ultralytics.com/modes/train/). There might be lack of accuracy sometimes, follow [Tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) or use advaced frameworks like [Ray Tune](https://docs.ray.io/en/latest/tune/index.html), [WandB](https://wandb.ai/), etc.
+
+### ONNX Conversion for YOLOv11
+Conversion script [here](scripts/torch_to_onnx.py). Follow the [Official Documentation](https://docs.ultralytics.com/modes/export/) for more configurations. Manual conversions are also possible follow [Official PyTorch Tutorial](https://pytorch.org/tutorials/beginner/onnx/export_simple_model_to_onnx_tutorial.html).
+
+### Quantize the network
+There is a bash file which runs TensorRT executor [here](weights/quantize_yolo.sh), this has to be changed based on the input and output of your network architecture, also make sure to set the right percesion values if ```fp16```, ```fp32```, ```int32```, etc.
+
+### Changing the Triton Ensemble Model
+The [models](models) folder has all the entire pipeline based on the network architecture the pre-processing and post-processing files need to be changed. Typically the ```config.pbtxt``` for all the steps might require changes based on the entire peception logic. 
+
+You can check wether the Triton is able to register you ensembled model by running ```bash run_container.sh``` and then inside running ```/opt/tritonserver/bin/tritonserver --model-repository=/models```.
+
+### Using API for any new Perception, Tracking and Filter.
+The entire [API][tracker_system/include] are defined in the files ```*_interface.hpp``` so by overriding the fucntions you can plug and play any custom solutions. 
 
 ## 📖 Citation
 If you found this code/work to be useful in your own research, please considering citing the following:
