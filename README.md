@@ -27,7 +27,9 @@ Training script [here](scripts/train.py).
 ### ONNX Conversion for YOLOv11
 Conversion script [here](scripts/torch_to_onnx.py).
 
-## 📐 System Design
+<details>
+<summary>📐 System Design</summary>
+
 <div align="center">
     <img src="assets/main_system_design.png" width="1500" height="200" alt="Main Sys Design" />
     <p>Overall System Design.</p>
@@ -81,6 +83,8 @@ The SoA is defined [here](tracker_system/filter/include/filter/particle_states.c
 </div>
 
 The souce code for the kernels is located [here](tracker_system/filter/include/filter/kernels.cuh) and [here](tracker_system/filter/src/kernels.cu).
+  
+</details>
 
 ## 🏗️ Building the 🐳 Docker file
 Start building the docker container.
