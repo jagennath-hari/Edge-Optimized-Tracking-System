@@ -26,7 +26,7 @@ A YOLOv11s model is used for demonstration.
 Unzip the compressed file and place the ```best.pt``` and ```best.onnx``` in the ```weights``` folder.
 
 ### 📊 Dataset Download
-The pretrained weightss has been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the soccer dataset specifically **v_gQNyhv8y0QY_c013** instance. 
+The pretrained weights has been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the soccer dataset specifically **v_gQNyhv8y0QY_c013** instance. 
 
 [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
 
