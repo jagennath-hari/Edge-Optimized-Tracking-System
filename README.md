@@ -1,6 +1,6 @@
 # Edge-Optimized-Tracking-System
 <div align="justify">
-A high-performance multi-object tracking system utilizing a quantized YOLOv11 model deployed on the Triton Inference Server, integrated with a CUDA-accelerated particle filter for robust mutiple object tracking.
+The Edge Optimized Tracking System is a high-performance object tracking and inference pipeline designed for real-time applications. Leveraging NVIDIA's Triton Inference Server and GPU acceleration, this project combines state-of-the-art object detection, tracking, and particle filtering to achieve robust and efficient object tracking. It includes support for deep learning models, modular tracking algorithms, and advanced filtering mechanisms for precise localization and orientation estimation.
 </div>
 
 <div align="center">
@@ -19,18 +19,18 @@ A high-performance multi-object tracking system utilizing a quantized YOLOv11 mo
 
 ## ⚙️ Setup
 ### 🏋️ Pre trained weights for SportsMOT dataset
-A YOLOv11s model was used, dowload the weights.
+A YOLOv11s model is used for demonstration.
 
 [Pretrained Weights](https://drive.google.com/uc?export=download&id=13M0WVGBIsjVfTDMfZRp0fw7apFz1Fgn1)
 
-Extract the file and place the ```best.pt``` and ```best.onnx``` in the ```weights``` folder.
+Unzip the compressed file and place the ```best.pt``` and ```best.onnx``` in the ```weights``` folder.
 
 ### 📊 Dataset Download
-This trained network has only been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the scoccer dataset instance specifically **v_gQNyhv8y0QY_c013**. 
+The pretrained weightss has been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the soccer dataset specifically **v_gQNyhv8y0QY_c013** instance. 
 
 [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
 
-A folder called ```SportsMOT_example``` gets created after extracting the ```.zip``` file.
+A folder called ```SportsMOT_example``` gets created after extracting the file.
 
 ## 🏗️ Building the 🐳 Docker file
 Start building the docker container.
@@ -38,10 +38,12 @@ Start building the docker container.
 bash build.sh
 ```
 
-Compiling the code (One time process).
+Compiling the code inside the container.
 ```
 bash compile.sh
 ```
+
+These need to be done only once and do not have to be repeated.
 ## ⌛️ Running on sample data
 To run the composed container with Triton and the executable.
 ```
@@ -59,7 +61,7 @@ The output video gets saved in the ```/tracker_system/result``` folder.
     <p>Overall System Design.</p>
 </div>
 
-The overall system is divided into individual sub-systems, Perception, ByteTracker, and Particle Filter. Each of the sub-systems are explained below.
+The overall system is divided into three sub-systems, Perception, ByteTracker, and Particle Filter. Each of the sub-systems are explained below.
 
 </details>
 
@@ -67,7 +69,7 @@ The overall system is divided into individual sub-systems, Perception, ByteTrack
 <details>
 <summary>Perception Design</summary>
 
-This again is divided into two sub-components which is the one time quantization, then the setting up the ensembled network for Triton Inference Server.
+Divided into two sub-components which is the one time quantization, then the setting up the ensembled network for Triton Inference Server.
 
 #### Quantization Framework
 <div align="center">
@@ -98,7 +100,7 @@ The [orginal authors paper](https://arxiv.org/abs/2110.06864) was used, the [Off
 <details>
 <summary>CUDA Particle Filter Design</summary>
 
-This implementation uses a complete GPU accelerated Particle Filter with an additional Unscented Transform for the prediction step.
+Implementation uses a GPU accelerated Particle Filter with an additional Unscented Transform for the prediction step.
 
 #### Structre of Array (SoA) for the states
 There are a total of 10 states.
@@ -123,7 +125,7 @@ There are a total of 10 states.
 
 Training script [here](scripts/train.py).
 
-Follow the [Official Documentation](https://docs.ultralytics.com/modes/train/). There might be lack of accuracy sometimes, follow [Tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) or use advaced frameworks like [Ray Tune](https://docs.ray.io/en/latest/tune/index.html), [WandB](https://wandb.ai/), etc.
+Follow the [Official Documentation](https://docs.ultralytics.com/modes/train/). A lack of accuracy may occur sometimes depending on the complexity of the objects, follow [Tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) or use advaced frameworks like [Ray Tune](https://docs.ray.io/en/latest/tune/index.html), [WandB](https://wandb.ai/), etc.
 
 </details>
 
@@ -137,7 +139,7 @@ Conversion script [here](scripts/torch_to_onnx.py). Follow the [Official Documen
 <details>
 <summary>Quantize the network</summary>
 
-There is a bash file which runs TensorRT executor [here](weights/quantize_yolo.sh), this has to be changed based on the input and output of your network architecture, also make sure to set the right percesion values if ```fp16```, ```fp32```, ```int32```, etc.
+A bash file which runs TensorRT executor [here](weights/quantize_yolo.sh), which may to be changed based on the input and output based on the network architecture, right percesion values are required for faster inferences eg  ```fp16```, ```fp32```, ```int32```, etc.
 
 </details>
 
@@ -145,9 +147,9 @@ There is a bash file which runs TensorRT executor [here](weights/quantize_yolo.s
 <details>
 <summary>Changing the Triton Ensemble Model</summary>
 
-The [models](models) folder has all the entire pipeline based on the network architecture the pre-processing and post-processing files need to be changed. Typically the ```config.pbtxt``` for all the steps might require changes based on the entire peception logic. 
+The [models](models) folder has all the entire pipeline. Based on the network architecture the pre-processing and post-processing files need to be changed. Typically the ```config.pbtxt``` for all the steps might require changes based on the entire peception logic. 
 
-You can check wether the Triton is able to register you ensembled model by running ```bash run_container.sh``` and then inside running ```/opt/tritonserver/bin/tritonserver --model-repository=/models```.
+It is recommended to check if Triton is able to register you ensembled model by running ```bash run_container.sh``` and then inside running ```/opt/tritonserver/bin/tritonserver --model-repository=/models```.
 
 </details>
 
@@ -171,10 +173,10 @@ The entire [API](tracker_system/include) are defined in the files ```*_interface
 ## ⚠️ Note
 1) The particle filter can be extended to other applications such as 3D tracking, but it requires changes to the state space model.
 2) If running on NVIDIA Jetson, CUDA Shared Memory is not supported for Triton, the ensembled model needs to be changed as ARM uses unified memory.
-3) ByteTrack may not be the best solution, more SOTA learning based trackers can perform at higher accuracy.
+3) ByteTrack may not be the best solution, more SOTA learning based trackers can yeild better correspondences.
 4) The system dynamics for the particle filter use simple equations of motion, it is best to use more complex dynamics when object motions are highly non-linear.
-5) The noise values may need tuning in the particle filter.
-6) Quantizing to int8 or fp16 can yeild faster iferences but at the cost of accuracy, it is a good idea to balance both, or undeerstand the applications requirements more for the ideal selection.
+5) The noise values may need tuning inside the particle filter.
+6) Quantizing to int8 or fp16 can yeild faster inferences but at the cost of accuracy, it is a good idea to balance both, or undeerstand the applications requirements more for the ideal selection.
 
 ## 📖 Citation
 If you found this code/work to be useful in your own research, please considering citing the following:
