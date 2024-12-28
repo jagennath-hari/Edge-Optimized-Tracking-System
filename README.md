@@ -47,7 +47,7 @@ Compiling the code inside the container.
 bash compile.sh
 ```
 
-These need to be done only once and do not have to be repeated.
+These need to be done only once and does not have to be repeated.
 ## ⌛️ Running on sample data
 To run the composed container with Triton and the executable.
 ```
