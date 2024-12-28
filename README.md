@@ -18,6 +18,10 @@ The Edge Optimized Tracking System is a high-performance object tracking and inf
 *Tested on Ubuntu 22.04 and with CUDA 12.1 using RTX 4090 GPU.*
 
 ## ⚙️ Setup
+### 📥 Clone the Repository
+```
+git clone https://github.com/jagennath-hari/Edge-Optimized-Tracking-System.git
+```
 ### 🏋️ Pre trained weights for SportsMOT dataset
 A YOLOv11s model is used for demonstration.
 
