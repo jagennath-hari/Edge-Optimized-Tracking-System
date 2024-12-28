@@ -52,6 +52,10 @@ DATASET_PATH=/path/to/your/SportsMOT_example bash run_and_exit.sh
 
 The output video gets saved in the ```/tracker_system/result``` folder.
 
+<!---
+## 📖 Algorithim Overview
+-->
+
 ## 📐 System Design
 <details>
 <summary>End-to-end Pipeline</summary>
@@ -197,6 +201,14 @@ year = {2023}
   author={Zhang, Yifu and Sun, Peize and Jiang, Yi and Yu, Dongdong and Weng, Fucheng and Yuan, Zehuan and Luo, Ping and Liu, Wenyu and Wang, Xinggang},
   booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
   year={2022}
+}
+```
+```bibtex
+@article{cui2023sportsmot,
+  title={SportsMOT: A Large Multi-Object Tracking Dataset in Multiple Sports Scenes},
+  author={Cui, Yutao and Zeng, Chenkai and Zhao, Xiaoyu and Yang, Yichun and Wu, Gangshan and Wang, Limin},
+  journal={arXiv preprint arXiv:2304.05170},
+  year={2023}
 }
 ```
 
