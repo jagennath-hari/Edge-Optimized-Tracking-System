@@ -52,9 +52,21 @@ DATASET_PATH=/path/to/your/SportsMOT_example bash run_and_exit.sh
 
 The output video gets saved in the ```/tracker_system/result``` folder.
 
-<!---
+
 ## 📖 Algorithim Overview
--->
+### 🤖 Perception Algorithim
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/triton_ensemble_algo.png" width="500" height="200" alt="Algorithm 1" />
+      <p>Ensembled Model Algorithim</p>
+    </td>
+    <td align="center">
+      <img src="assets/perception_algo.png" width="500" height="200" alt="Algorithm 2" />
+      <p>Perception Algorithim</p>
+    </td>
+  </tr>
+</table>
 
 ## 📐 System Design
 <details>
