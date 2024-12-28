@@ -176,7 +176,7 @@ The entire [API](tracker_system/include) are defined in the files ```*_interface
 3) ByteTrack may not be the best solution, more SOTA learning based trackers can yeild better correspondences.
 4) The system dynamics for the particle filter use simple equations of motion, it is best to use more complex dynamics when object motions are highly non-linear.
 5) The noise values may need tuning inside the particle filter.
-6) Quantizing to int8 or fp16 can yeild faster inferences but at the cost of accuracy, it is a good idea to balance both, or undeerstand the applications requirements more for the ideal selection.
+6) Quantizing to int8 or fp16 can yeild faster inferences but at the cost of accuracy, it is a good idea to balance both, and match the applications requirements more for the ideal selection.
 
 ## 📖 Citation
 If you found this code/work to be useful in your own research, please considering citing the following:
