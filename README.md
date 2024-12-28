@@ -68,6 +68,12 @@ The output video gets saved in the ```/tracker_system/result``` folder.
   </tr>
 </table>
 
+### ✨ Particle Filter Algorithim
+<div align="center">
+    <img src="assets/particle_filter_algo.png" width="1500" height="1000" alt="Main Sys Design" />
+    <p>Particle Filter Algorithim.</p>
+</div>
+
 ## 📐 System Design
 <details>
 <summary>End-to-end Pipeline</summary>
