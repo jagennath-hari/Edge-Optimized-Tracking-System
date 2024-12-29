@@ -75,11 +75,7 @@ class DataLoader:
             image_path = os.path.join(self.image_dir, image_name)
             image = cv2.imread(image_path)
 
-            # Load the corresponding annotation
-            annotation_path = os.path.splitext(image_path)[0] + '.txt'
-            annotations = self.load_annotations(annotation_path)
-
-            yield image, annotations
+            yield image
 
 
 # Example Usage
