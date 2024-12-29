@@ -203,6 +203,13 @@ The entire [API](tracker_system/include) are defined in the files ```*_interface
 
 </details>
 
+<details>
+<summary>Rapid prototype</summary>
+
+Follow the [file](scripts/prototype/learning_tracker.py) to experiment with python.
+
+</details>
+
 ## 🛠️ Final Result
 <div align="center">
     <img src="assets/result.gif" width="1000" height="400" alt="Tracking System Result" />
