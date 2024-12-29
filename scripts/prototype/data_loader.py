@@ -15,26 +15,6 @@ class DataLoader:
             [f for f in os.listdir(image_dir) if f.endswith(('.jpg', '.png'))]
         )
 
-    def load_annotations(self, annotation_path: str) -> np.ndarray:
-        """
-        Loads the annotation file as a numpy array.
-
-        Args:
-            annotation_path (str): Path to the `.txt` file containing annotations.
-
-        Returns:
-            np.ndarray: Array of annotations with columns [x1, y1, x2, y2, class_id, confidence].
-        """
-        if os.path.exists(annotation_path):
-            try:
-                return np.loadtxt(annotation_path, skiprows=1)  # Skip the header row
-            except ValueError as e:
-                print(f"Error reading {annotation_path}: {e}")
-                return np.empty((0, 6))  # Return an empty array if there's an error
-        else:
-            return np.empty((0, 6))  # Return an empty array if no annotations exist
-
-
     def draw_boxes(self, image: np.ndarray, annotations: np.ndarray) -> np.ndarray:
         """
         Draws bounding boxes, class IDs, and confidence values on the image.
