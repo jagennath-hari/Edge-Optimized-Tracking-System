@@ -58,7 +58,9 @@ The output video gets saved in the ```/tracker_system/result``` folder.
 
 
 ## 📖 Algorithim Overview
-### 🤖 Perception Algorithim
+<details>
+<summary>🤖 Perception Algorithim</summary>
+
 <table>
   <tr>
     <td align="center">
@@ -72,11 +74,17 @@ The output video gets saved in the ```/tracker_system/result``` folder.
   </tr>
 </table>
 
-### ✨ Particle Filter Algorithim
+</details>
+
+<details>
+<summary>✨ Particle Filter Algorithim</summary>
+
 <div align="center">
     <img src="assets/particle_filter_algo.png" width="1500" height="1000" alt="Main Sys Design" />
     <p>Particle Filter Algorithim.</p>
 </div>
+
+</details>
 
 ## 📐 System Design
 <details>
