@@ -4,8 +4,8 @@ The Edge Optimized Tracking System is a high-performance object tracking and inf
 </div>
 
 <div align="center">
-    <img src="assets/result.gif" width="1000" height="400" alt="Tracking System Result" />
-    <p>Edge-Optimized Tracking System for the SportsMOT Dataset as an example.</p>
+    <img src="assets/output_tracking.gif" width="1000" height="400" alt="Final Result" />
+    <p>Multi-instance tracking with precise localization and orientation estimation.</p>
 </div>
 
 ## 🏁 Dependencies
@@ -203,6 +203,11 @@ The entire [API](tracker_system/include) are defined in the files ```*_interface
 
 </details>
 
+## 🛠️ Final Result
+<div align="center">
+    <img src="assets/result.gif" width="1000" height="400" alt="Tracking System Result" />
+    <p>Edge-Optimized Tracking System for the SportsMOT Dataset as an example.</p>
+</div>
 
 ## ⚠️ Note
 1) The particle filter can be extended to other applications such as 3D tracking, but it requires changes to the state space model.
