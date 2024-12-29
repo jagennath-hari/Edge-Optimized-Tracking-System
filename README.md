@@ -77,7 +77,7 @@ The output video gets saved in the ```/tracker_system/result``` folder.
 </details>
 
 <details>
-<summary>Particle Filter Algorithim</summary>
+<summary>CUDA Particle Filter Algorithim</summary>
 
 <div align="center">
     <img src="assets/particle_filter_algo.png" width="1500" height="1000" alt="Main Sys Design" />
