@@ -75,7 +75,7 @@ class DataLoader:
             image_path = os.path.join(self.image_dir, image_name)
             image = cv2.imread(image_path)
 
-            yield image
+            yield image, None
 
 
 # Example Usage
