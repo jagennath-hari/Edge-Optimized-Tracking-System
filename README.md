@@ -4,7 +4,7 @@ The Edge Optimized Tracking System is a high-performance object tracking and inf
 </div>
 
 <div align="center">
-    <img src="assets/result.gif" width="800" height="400" alt="Tracking System Result" />
+    <img src="assets/result.gif" width="1000" height="400" alt="Tracking System Result" />
     <p>Edge-Optimized Tracking System for the SportsMOT Dataset as an example.</p>
 </div>
 
