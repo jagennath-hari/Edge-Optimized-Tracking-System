@@ -5,7 +5,7 @@ The Edge Optimized Tracking System is a high-performance object tracking and inf
 
 <div align="center">
     <img src="assets/output_tracking.gif" width="1000" height="400" alt="Final Result" />
-    <p>Multi-instance tracking with precise localization and orientation estimation.</p>
+    <p>Multi-instance tracking with localization and orientation estimation using particle filter.</p>
 </div>
 
 ## 🏁 Dependencies
