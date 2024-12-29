@@ -18,18 +18,18 @@ The Edge Optimized Tracking System is a high-performance object tracking and inf
 *Tested on Ubuntu 22.04 and with CUDA 12.1 using RTX 4090 GPU.*
 
 ## ⚙️ Setup
-### 📥 Clone the Repository
+### Clone the Repository
 ```
 git clone https://github.com/jagennath-hari/Edge-Optimized-Tracking-System.git
 ```
-### 🏋️ Pre trained weights for SportsMOT dataset
+### Pre trained weights for SportsMOT dataset
 A YOLOv11s model is used for demonstration.
 
 [Pretrained Weights](https://drive.google.com/uc?export=download&id=13M0WVGBIsjVfTDMfZRp0fw7apFz1Fgn1)
 
 Unzip the compressed file and place the ```best.pt``` and ```best.onnx``` in the ```weights``` folder.
 
-### 📊 Dataset Download
+### Dataset Download
 The pretrained weights has been trained on a single example dataset from the [SportsMOT dataset](https://github.com/MCG-NJU/SportsMOT). It was trained on the soccer dataset specifically **v_gQNyhv8y0QY_c013** instance. 
 
 [Sample Dataset on OneDrive from Authors](https://1drv.ms/u/s!AtjeLq7YnYGRgQRrmqGr4B-k-xsC?e=7PndU8)
