@@ -37,7 +37,7 @@ The pretrained weights has been trained on a single example dataset from the [Sp
 A folder called ```SportsMOT_example``` gets created after extracting the file.
 
 ## 🏗️ Building the 🐳 Docker file
-Start building the docker container.
+Start building the docker image.
 ```
 bash build.sh
 ```
